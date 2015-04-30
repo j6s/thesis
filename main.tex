@@ -1,11 +1,11 @@
 \documentclass[
-12pt,
-BCOR=10mm,
-a4paper,
-bibliography=totoc,
-includefoot,
-listof=totoc,
-smallheadings,
+  12pt,
+  BCOR=10mm,
+  a4paper,
+  bibliography=totoc,
+  includefoot,
+  listof=totoc,
+  smallheadings,
 ]{scrartcl}
 
 % charset, encoding and default language
@@ -30,17 +30,17 @@ smallheadings,
 
 % custom page layout
 \usepackage[
-a4paper,
-bottom=3cm,
-left=3cm,
-right=3cm,
-top=2.5cm,
+  a4paper,
+  bottom=3cm,
+  left=3cm,
+  right=3cm,
+  top=2.5cm,
 ]{geometry}
 
 % custom header and footer
 \usepackage[
-autooneside=false,
-headsepline,
+  autooneside=false,
+  headsepline,
 ]{scrlayer-scrpage}
 
 % default page style
@@ -54,16 +54,15 @@ headsepline,
 
 % clean and set marks
 \chead{}
-% \ohead[\headmark]{\headmark}
 \cfoot{}
 \ofoot[\pagemark]{\pagemark}
 
 % colorize
 \usepackage{xcolor}
 \setkomafont{pageheadfoot}{%
-    \itshape\color{gray}}
+  \itshape\color{gray}}
 \setkomafont{pagenumber}{%
-    \itshape\color{gray}}
+  \itshape\color{gray}}
 
 % graphics
 \usepackage{graphicx}
@@ -88,8 +87,6 @@ headsepline,
 \titleformat*{\section}{\Large\bfseries}
 \titleformat*{\subsection}{\large\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
-% \titleformat*{\paragraph}{\normalsize\bfseries}
-% \titleformat*{\subparagraph}{\normalsize\bfseries}
 
 % nice references and links
 \usepackage[german]{fancyref}
@@ -97,6 +94,7 @@ headsepline,
 
 % lorem ipsum
 \usepackage{lipsum}
+
 
 % here we go
 \begin{document}
