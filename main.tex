@@ -2,8 +2,8 @@
 12pt,
 BCOR=10mm,
 a4paper,
-abstracton,
 bibliography=totoc,
+includefoot,
 listof=totoc,
 smallheadings,
 ]{scrartcl}
@@ -37,6 +37,34 @@ right=3cm,
 top=2.5cm,
 ]{geometry}
 
+% custom header and footer
+\usepackage[
+autooneside=false,
+headsepline,
+]{scrlayer-scrpage}
+
+% default page style
+\pagestyle{scrheadings}
+
+% save roman page number for later use
+\newcounter{savepage}
+
+% use these titles
+\automark[subsection]{section}
+
+% clean and set marks
+\chead{}
+% \ohead[\headmark]{\headmark}
+\cfoot{}
+\ofoot[\pagemark]{\pagemark}
+
+% colorize
+\usepackage{xcolor}
+\setkomafont{pageheadfoot}{%
+    \itshape\color{gray}}
+\setkomafont{pagenumber}{%
+    \itshape\color{gray}}
+
 % graphics
 \usepackage{graphicx}
 % tables
@@ -57,7 +85,7 @@ top=2.5cm,
 \newcommand{\sectionbreak}{\clearpage}
 
 % adjust font size of headings
-\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\section}{\Large\bfseries}
 \titleformat*{\subsection}{\large\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
 % \titleformat*{\paragraph}{\normalsize\bfseries}
@@ -74,6 +102,11 @@ top=2.5cm,
 
 \maketitle
 \newpage
+
+% breakpoint 1
+\cleardoublepage
+\pagenumbering{Roman}
+\ohead[]{}
 
 \addsec{Kurzfassung}
 \lipsum[1]
@@ -94,6 +127,12 @@ top=2.5cm,
 
 \printnomenclature
 \newpage
+
+% breakpoint 2
+\cleardoublepage
+\setcounter{savepage}{\arabic{page}}
+\pagenumbering{arabic}
+\ohead[\headmark]{\headmark}
 
 % ch01
 \section{Headline Level 1}
@@ -168,6 +207,12 @@ Die Abkürzung DHBW\nomenclature{DHBW}{Duale Hochschule Baden Württemberg} steh
 \lipsum[1]
 
 \newpage
+
+% breakpoint 3
+\cleardoublepage
+\pagenumbering{Roman}
+\setcounter{page}{\thesavepage}
+\ohead[]{}
 
 \printbibliography
 
