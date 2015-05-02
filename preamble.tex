@@ -1,86 +1,62 @@
-\documentclass[
-  12pt,
-  BCOR=10mm,
-  a4paper,
-  bibliography=totoc,
-  includefoot,
-  listof=totoc,
-  smallheadings,
+\documentclass[%
+    12pt, BCOR=10mm, a4paper, bibliography=totoc, includefoot, listof=totoc,
+    smallheadings
 ]{scrartcl}
 
-% charset, encoding and default language
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
-
-% use helvetica
-% set sans serif as default font family
-\usepackage[scaled]{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
-% improve general appearance of type
-\usepackage{microtype}
-
-% line height
-\usepackage{setspace}
-\onehalfspacing
-
-% recalculate type area
-\typearea[current]{calc}
-
-% custom page layout
-\usepackage[
-  a4paper,
-  bottom=3cm,
-  left=3cm,
-  right=3cm,
-  top=2.5cm,
+% load packages
+\usepackage[%
+    a4paper, bottom=3cm, left=3cm, right=3cm, top=2.5cm
 ]{geometry}
 
-% custom header and footer
-\usepackage[
-  autooneside=false,
-  headsepline,
+\usepackage[%
+    autooneside=false, headsepline
 ]{scrlayer-scrpage}
 
-% default page style
-\pagestyle{scrheadings}
+\usepackage[T1]{fontenc}             % font encoding
+\usepackage[ngerman]{babel}          % typographical rules
+\usepackage[utf8]{inputenc}          % input encoding
 
-% save roman page number for later use
-\newcounter{savepage}
+\usepackage[backend=biber]{biblatex} % bibliography
 
-% use these titles
-\automark[subsection]{section}
+\usepackage[intoc]{nomencl}          % list of symbols
 
-% clean and set marks
-\chead{}
-\cfoot{}
-\ofoot[\pagemark]{\pagemark}
+\usepackage[german]{fancyref}        % fancy cross referenceing
+\usepackage[pdfusetitle]{hyperref}   % support for hypertext
 
-% colorize
-\usepackage{xcolor}
-\setkomafont{pageheadfoot}{%
-  \itshape\color{gray}}
-\setkomafont{pagenumber}{%
-  \itshape\color{gray}}
+\usepackage[scaled]{helvet}          % load helvetica font
 
-% graphics
-\usepackage{graphicx}
-% tables
-\usepackage{booktabs}
+\usepackage{booktabs}                % nice looking tables
+\usepackage{graphicx}                % enhanced support for graphics
 
-% papers
-\usepackage[backend=biber]{biblatex}
+\usepackage{lipsum}                  % lorem ipsum dummy text
+
+\usepackage{microtype}               % improve general appearance of text
+
+\usepackage{setspace}                % space between lines
+
+\usepackage{titlesec}                % alternative section titles
+
+\usepackage{xcolor}                  % color extensions
+
+
+% bibliography
 \addbibresource{papers.bib}
 
-% abbreviations
-\usepackage[intoc]{nomencl}
+% list of symbols
 \renewcommand{\nomname}{Abkürzungsverzeichnis}
 \renewcommand{\nomlabel}[1]{\textbf{#1}}
 \makenomenclature
 
+% set sans serif as default font family
+\renewcommand{\familydefault}{\sfdefault}
+
+% line height
+\onehalfspacing
+
+% default page style
+\pagestyle{scrheadings}
+
 % start sections on a new page
-\usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 
 % adjust font size of headings
@@ -88,10 +64,15 @@
 \titleformat*{\subsection}{\large\bfseries}
 \titleformat*{\subsubsection}{\normalsize\bfseries}
 
-% nice references and links
-\usepackage[german]{fancyref}
-\usepackage[pdfusetitle]{hyperref}
+% save roman page number for later use
+\newcounter{savepage}
 
-% lorem ipsum
-\usepackage{lipsum}
+% custom header and footer
+\automark[subsection]{section}
 
+\chead{}
+\cfoot{}
+\ofoot[\pagemark]{\pagemark}
+
+\setkomafont{pageheadfoot}{\itshape\color{gray}}
+\setkomafont{pagenumber}{\itshape\color{gray}}
