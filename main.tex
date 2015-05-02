@@ -1,100 +1,5 @@
-\documentclass[
-  12pt,
-  BCOR=10mm,
-  a4paper,
-  bibliography=totoc,
-  includefoot,
-  listof=totoc,
-  smallheadings,
-]{scrartcl}
-
-% charset, encoding and default language
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
-
-% use helvetica
-% set sans serif as default font family
-\usepackage[scaled]{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
-% improve general appearance of type
-\usepackage{microtype}
-
-% line height
-\usepackage{setspace}
-\onehalfspacing
-
-% recalculate type area
-\typearea[current]{calc}
-
-% custom page layout
-\usepackage[
-  a4paper,
-  bottom=3cm,
-  left=3cm,
-  right=3cm,
-  top=2.5cm,
-]{geometry}
-
-% custom header and footer
-\usepackage[
-  autooneside=false,
-  headsepline,
-]{scrlayer-scrpage}
-
-% default page style
-\pagestyle{scrheadings}
-
-% save roman page number for later use
-\newcounter{savepage}
-
-% use these titles
-\automark[subsection]{section}
-
-% clean and set marks
-\chead{}
-\cfoot{}
-\ofoot[\pagemark]{\pagemark}
-
-% colorize
-\usepackage{xcolor}
-\setkomafont{pageheadfoot}{%
-  \itshape\color{gray}}
-\setkomafont{pagenumber}{%
-  \itshape\color{gray}}
-
-% graphics
-\usepackage{graphicx}
-% tables
-\usepackage{booktabs}
-
-% papers
-\usepackage[backend=biber]{biblatex}
-\addbibresource{papers.bib}
-
-% abbreviations
-\usepackage[intoc]{nomencl}
-\renewcommand{\nomname}{Abkürzungsverzeichnis}
-\renewcommand{\nomlabel}[1]{\textbf{#1}}
-\makenomenclature
-
-% start sections on a new page
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
-
-% adjust font size of headings
-\titleformat*{\section}{\Large\bfseries}
-\titleformat*{\subsection}{\large\bfseries}
-\titleformat*{\subsubsection}{\normalsize\bfseries}
-
-% nice references and links
-\usepackage[german]{fancyref}
-\usepackage[pdfusetitle]{hyperref}
-
-% lorem ipsum
-\usepackage{lipsum}
-
+% preamble
+\input{preamble}
 
 % here we go
 \begin{document}
@@ -136,79 +41,12 @@
 \pagenumbering{arabic}
 \ohead[\headmark]{\headmark}
 
-% ch01
-\section{Headline Level 1}
-\lipsum[1-2]
-
-Lorem ipsum dolor sid amet \autocite{mcconnell2004}.
-
-Die Abkürzung DHBW\nomenclature{DHBW}{Duale Hochschule Baden Württemberg} steht im Abkürzungsverzeichnis.
-
-Verweis auf~\fref{fig:logo}.
-
-\subsection{Headline Level 2}
-\lipsum[1]
-
-\begin{table}[htbp]
-    \caption{Eine Tabelle}
-    \label{tab:tabelle}
-    \centering
-    \begin{tabular}{lll}
-        \toprule
-        Ziel      & Abfahrt   & Dauer \\
-        \midrule
-        Frankfurt & stündlich & 3:20  \\
-        Berlin    & stündlich & 5:40  \\
-        Hamburg   & alle 5\,h & 5:20  \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\subsection{Headline Level 2}
-\lipsum[1]
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[scale=1.6]{figures/DHBW_d_LOE_46mm_4c.pdf}
-    \caption{Das Logo der DHBW Lörrach}
-    \label{fig:logo}
-\end{figure}
-
-% ch02
-\section{Headline Level 1}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-\subsubsection{Headline Level 3}
-\lipsum[1]
-\subsubsection{Headline Level 3}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-
-% ch03
-\section{Headline Level 1}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-
-% ch04
-\section{Headline Level 1}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-
-% ch05
-\section{Headline Level 1}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
-\subsection{Headline Level 2}
-\lipsum[1]
+% chapters
+\input{content/ch01}
+\input{content/ch02}
+\input{content/ch03}
+\input{content/ch04}
+\input{content/ch05}
 
 \newpage
 

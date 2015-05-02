@@ -1,0 +1,97 @@
+\documentclass[
+  12pt,
+  BCOR=10mm,
+  a4paper,
+  bibliography=totoc,
+  includefoot,
+  listof=totoc,
+  smallheadings,
+]{scrartcl}
+
+% charset, encoding and default language
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% use helvetica
+% set sans serif as default font family
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% improve general appearance of type
+\usepackage{microtype}
+
+% line height
+\usepackage{setspace}
+\onehalfspacing
+
+% recalculate type area
+\typearea[current]{calc}
+
+% custom page layout
+\usepackage[
+  a4paper,
+  bottom=3cm,
+  left=3cm,
+  right=3cm,
+  top=2.5cm,
+]{geometry}
+
+% custom header and footer
+\usepackage[
+  autooneside=false,
+  headsepline,
+]{scrlayer-scrpage}
+
+% default page style
+\pagestyle{scrheadings}
+
+% save roman page number for later use
+\newcounter{savepage}
+
+% use these titles
+\automark[subsection]{section}
+
+% clean and set marks
+\chead{}
+\cfoot{}
+\ofoot[\pagemark]{\pagemark}
+
+% colorize
+\usepackage{xcolor}
+\setkomafont{pageheadfoot}{%
+  \itshape\color{gray}}
+\setkomafont{pagenumber}{%
+  \itshape\color{gray}}
+
+% graphics
+\usepackage{graphicx}
+% tables
+\usepackage{booktabs}
+
+% papers
+\usepackage[backend=biber]{biblatex}
+\addbibresource{papers.bib}
+
+% abbreviations
+\usepackage[intoc]{nomencl}
+\renewcommand{\nomname}{Abkürzungsverzeichnis}
+\renewcommand{\nomlabel}[1]{\textbf{#1}}
+\makenomenclature
+
+% start sections on a new page
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+% adjust font size of headings
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% nice references and links
+\usepackage[german]{fancyref}
+\usepackage[pdfusetitle]{hyperref}
+
+% lorem ipsum
+\usepackage{lipsum}
+
