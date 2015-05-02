@@ -11,9 +11,7 @@
 \newpage
 
 % breakpoint 1
-\cleardoublepage
-\pagenumbering{Roman}
-\ohead[]{}
+\breakpointone
 
 \addsec{Kurzfassung}
 \lipsum[1]
@@ -36,10 +34,7 @@
 \newpage
 
 % breakpoint 2
-\cleardoublepage
-\setcounter{savepage}{\arabic{page}}
-\pagenumbering{arabic}
-\ohead[\headmark]{\headmark}
+\breakpointtwo
 
 % chapters
 \input{content/ch01}
@@ -51,10 +46,7 @@
 \newpage
 
 % breakpoint 3
-\cleardoublepage
-\pagenumbering{Roman}
-\setcounter{page}{\thesavepage}
-\ohead[]{}
+\breakpointthree
 
 \printbibliography
 

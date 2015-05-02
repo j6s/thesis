@@ -76,3 +76,25 @@
 
 \setkomafont{pageheadfoot}{\itshape\color{gray}}
 \setkomafont{pagenumber}{\itshape\color{gray}}
+
+
+% breakpoints
+\newcommand{\breakpointone}{
+    \cleardoublepage
+    \pagenumbering{Roman}
+    \ohead[]{}
+}
+
+\newcommand{\breakpointtwo}{
+    \cleardoublepage
+    \setcounter{savepage}{\arabic{page}}
+    \pagenumbering{arabic}
+    \ohead[\headmark]{\headmark}
+}
+
+\newcommand{\breakpointthree}{
+    \cleardoublepage
+    \pagenumbering{Roman}
+    \setcounter{page}{\thesavepage}
+    \ohead[]{}
+}
