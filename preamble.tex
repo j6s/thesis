@@ -20,7 +20,7 @@
 
 \usepackage[intoc]{nomencl}          % list of symbols
 
-\usepackage[german]{fancyref}        % fancy cross referenceing
+\usepackage[german]{fancyref}        % fancy cross referencing
 \usepackage[pdfusetitle]{hyperref}   % support for hypertext
 
 \usepackage[scaled]{helvet}          % load helvetica font
@@ -79,22 +79,79 @@
 
 
 % breakpoints
-\newcommand{\breakpointone}{
+\newcommand{\breakpointOne}{
     \cleardoublepage
     \pagenumbering{Roman}
     \ohead[]{}
 }
 
-\newcommand{\breakpointtwo}{
+\newcommand{\breakpointTwo}{
     \cleardoublepage
     \setcounter{savepage}{\arabic{page}}
     \pagenumbering{arabic}
     \ohead[\headmark]{\headmark}
 }
 
-\newcommand{\breakpointthree}{
+\newcommand{\breakpointThree}{
     \cleardoublepage
     \pagenumbering{Roman}
     \setcounter{page}{\thesavepage}
     \ohead[]{}
+}
+
+
+% title page
+\makeatletter
+
+\newcommand{\company}[1]{\gdef\@company{#1}}
+\newcommand{\course}[1]{\gdef\@course{#1}}
+\newcommand{\degree}[1]{\gdef\@degree{#1}}
+\newcommand{\discipline}[1]{\gdef\@discipline{#1}}
+\newcommand{\supervisorOne}[1]{\gdef\@supervisorOne{#1}}
+\newcommand{\supervisorTwo}[1]{\gdef\@supervisorTwo{#1}}
+\newcommand{\type}[1]{\gdef\@type{#1}}
+
+\renewcommand{\maketitle}{
+    \thispagestyle{empty}
+
+    \hfill
+    \includegraphics{figures/DHBW_d_LOE_46mm_4c.pdf}
+
+    \begin{center}
+        \singlespacing
+
+        {\LARGE \bfseries \@title\par}
+        \vspace{48pt}
+
+        {\large \mdseries \@type\par}
+        \vspace{24pt}
+
+        {\normalsize \mdseries für die Prüfung zum\\\@degree\par}
+        \vspace{24pt}
+        {\normalsize \mdseries des Studiengangs \@discipline\\an der\\Dualen Hochschule Baden-Württemberg, Lörrach\par}
+        \vspace{24pt}
+        {\normalsize \mdseries von\\\@author\par}
+        \vspace{24pt}
+        {\normalsize \mdseries \@date\par}
+
+        \vfill
+
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushleft}
+                Kurs\\
+                Ausbildungsfirma\\
+                Betreuer der Ausbildungsfirma\\
+                Wissenschaftlicher Betreuer
+            \end{flushleft}
+        \end{minipage}
+        ~
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushright}
+                \@course\\
+                \@company\\
+                \@supervisorOne\\
+                \@supervisorTwo
+            \end{flushright}
+        \end{minipage}
+    \end{center}
 }
