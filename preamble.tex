@@ -28,19 +28,19 @@
 
 \usepackage[scaled]{helvet}          % load helvetica font
 
+\usepackage{microtype}               % improve general appearance of text
+\usepackage{setspace}                % space between lines
+
+\usepackage{xcolor}                  % color extensions
+
 \usepackage{booktabs}                % nice looking tables
 \usepackage{graphicx}                % enhanced support for graphics
 \usepackage{listings}                % pretty source code
 
-\usepackage{microtype}               % improve general appearance of text
-\usepackage{setspace}                % space between lines
-
 \usepackage{titlesec}                % alternative section titles
 
-\usepackage{xcolor}                  % color extensions
-
 \usepackage{amsmath}                 % support for mathematics
-\usepackage{units}                   % nice fractions and units
+\usepackage{units}                   % better fractions and units
 
 \usepackage{lipsum}                  % lorem ipsum dummy text
 
@@ -82,6 +82,10 @@
 
 \setkomafont{pageheadfoot}{\itshape\color{gray}}
 \setkomafont{pagenumber}{\itshape\color{gray}}
+
+% custom captions
+\setkomafont{caption}{\small\itshape}
+\setkomafont{captionlabel}{\small\itshape}
 
 
 % breakpoints
