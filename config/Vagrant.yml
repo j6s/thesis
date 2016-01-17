@@ -14,6 +14,7 @@
           - texlive
           - biber
           - texlive-lang-german
+          - texlive-latex-extra
 
       - name: Copy bashrc
         template:

@@ -18,13 +18,15 @@ All you need to set it up is
 This project requires the following packages:
 
 - texlive
+- texlive-lang-german
+- texlive-latex-extra
 - biber
 - make
 
 If you are using a debian based system you can install the dependencies using the following command:
 
 ```
-sudo apt-get install texlive biber make
+sudo apt-get install texlive texlive-lang-german texlive-latex-extra  biber make
 ```
 
 Be advised that the texlive package is large and will take a little while to download
