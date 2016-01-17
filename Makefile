@@ -1,4 +1,5 @@
 all:
+	mkdir -p output
 	pdflatex --output-directory output main.tex
 	biber output/main
 	makeindex output/main.nlo -s nomencl.ist -o output/main.nls
