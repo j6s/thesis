@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
 
   # Simple debian 8.1 base box
-  config.vm.box = "box-cutter/debian81"
+  config.vm.box = "ubuntu/trusty64"
 
   # minimal virtualbox config
   config.vm.provider "virtualbox" do |vb|
